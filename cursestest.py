@@ -4,7 +4,6 @@ from os import system
 import curses
 import requests
 import subprocess
-import sh
 
 def get_param(prompt_string):
     screen.clear()
