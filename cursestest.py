@@ -2,7 +2,6 @@
 
 from os import system
 import curses
-import requests
 import subprocess
 
 def get_param(prompt_string):
@@ -32,6 +31,13 @@ def cli(string):
     output, error = cmd.communicate()
     return output
 x = 0
+
+try:
+    import requests
+except:
+    cli("pip install requests")
+    import requests
+
 
 while x != ord('6'):
     screen = curses.initscr()
