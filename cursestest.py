@@ -39,7 +39,7 @@ except:
     import requests
 
 
-while x != ord('6'):
+while x != ord('7'):
     screen = curses.initscr()
 
     screen.clear()
@@ -118,7 +118,4 @@ while x != ord('6'):
        # a = sh.curl("-s", "http://cloudfiles.fanatassist.com/apachebuddy.pl")
        # b = sh.perl(a)
        
-
-    if x == ord('7'):
-        
-        curses.endwin()
+curses.endwin()
