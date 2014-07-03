@@ -39,7 +39,7 @@ except:
     import requests
 
 
-while x != ord('7'):
+while x != ord('8'):
     screen = curses.initscr()
 
     screen.clear()
@@ -51,7 +51,8 @@ while x != ord('7'):
     screen.addstr(7, 4, "4 - Add new vhost")
     screen.addstr(8, 4, "5 - Show active vhosts/domains")
     screen.addstr(9, 4, "6 - run apache buddy")
-    screen.addstr(10, 4, "7 - Exit")
+    screen.addstr(10, 4, "7 - Run Mysqltuner")
+    screen.addstr(11, 4, "8 - Exit")
     screen.refresh()
 
     x = screen.getch()
@@ -116,6 +117,15 @@ while x != ord('7'):
 
        # print cli("perl <( curl -s http://cloudfiles.fanatassist.com/apachebuddy.pl )")
        # a = sh.curl("-s", "http://cloudfiles.fanatassist.com/apachebuddy.pl")
-       # b = sh.perl(a)
+       # b = sh.perl(a)i
+
+    if x == ord('7')
+        curses.endwin()
+        cli("wget https://raw.githubusercontent.com/major/MySQLTuner-perl/master/mysqltuner.pl -O /tmp/mysqltuner.pl")
+        cli("perl /tmp/mysqltuner.pl")
+
+
+
+
        
 curses.endwin()
