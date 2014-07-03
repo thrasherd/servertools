@@ -29,6 +29,7 @@ def cli(string):
 			   stderr=subprocess.PIPE,
 			  )
     output, error = cmd.communicate()
+    print error
     return output
 x = 0
 
