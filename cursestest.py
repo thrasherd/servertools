@@ -98,12 +98,12 @@ while x != ord('8'):
             #print error
             o = cli("sh ./somescript.sh")
             print o
-            
+
     if x == ord('5'):
         curses.endwin()
         execute_cmd("httpd -S 2>/dev/null |grep 80")
     if x == ord('6'):
-        
+
 
 
 
@@ -112,14 +112,14 @@ while x != ord('8'):
         outfile=open("apachebuddy.pl", "w")
         outfile.write(a)
         outfile.close()
-        
+
         print cli("perl ./apachebuddy.pl")
 
        # print cli("perl <( curl -s http://cloudfiles.fanatassist.com/apachebuddy.pl )")
        # a = sh.curl("-s", "http://cloudfiles.fanatassist.com/apachebuddy.pl")
        # b = sh.perl(a)i
 
-    if x == ord('7')
+    if x == ord('7'):
         curses.endwin()
         cli("wget https://raw.githubusercontent.com/major/MySQLTuner-perl/master/mysqltuner.pl -O /tmp/mysqltuner.pl")
         cli("perl /tmp/mysqltuner.pl")
@@ -127,5 +127,5 @@ while x != ord('8'):
 
 
 
-       
+
 curses.endwin()
