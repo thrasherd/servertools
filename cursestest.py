@@ -25,6 +25,13 @@ def execute_cmd(cmd_string):
     raw_input("Press enter")
     print ""
 
+def cli(string):
+    cmd = subprocess.Popen(string.split(),
+			   stdout=subprocess.PIPE,
+			   stderr=subprocess.PIPE,
+			  )
+    output, error = cmd.communicate()
+    return output
 x = 0
 
 while x != ord('6'):
@@ -76,20 +83,37 @@ while x != ord('6'):
 
             outfile.write(c)
             outfile.close()
-            cmd = subprocess.Popen("sh ./somescript.sh".split(),
-                                   stdout=subprocess.PIPE,
-                                   stderr=subprocess.PIPE,
-                                  )
-            output, error = cmd.communicate()
-            print output
-            print error
+            #cmd = subprocess.Popen("sh ./somescript.sh".split(),
+            #                       stdout=subprocess.PIPE,
+            #                       stderr=subprocess.PIPE,
+            #                      )
+            #output, error = cmd.communicate()
+            #print output
+            #print error
+            o = cli("sh ./somescript.sh")
+            print o
+            
     if x == ord('5'):
         curses.endwin()
         execute_cmd("httpd -S 2>/dev/null |grep 80")
     if x == ord('6'):
-        curses.endwin()
-        a = sh.curl("-s", "http://cloudfiles.fanatassist.com/apachebuddy.pl")
-        b = sh.perl(a)
-        print b
+        
 
-curses.endwin()
+
+
+	curses.endwin()
+        a = cli("curl -s http://cloudfiles.fanatassist.com/apachebuddy.pl")
+        outfile=open("apachebuddy.pl", "w")
+        outfile.write(a)
+        outfile.close()
+        
+        print cli("perl ./apachebuddy.pl")
+
+       # print cli("perl <( curl -s http://cloudfiles.fanatassist.com/apachebuddy.pl )")
+       # a = sh.curl("-s", "http://cloudfiles.fanatassist.com/apachebuddy.pl")
+       # b = sh.perl(a)
+       
+
+    if x == ord('7'):
+        
+        curses.endwin()
