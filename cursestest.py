@@ -123,8 +123,8 @@ while x != ord('8'):
     if x == ord('7'):
         curses.endwin()
         cli("wget https://raw.githubusercontent.com/major/MySQLTuner-perl/master/mysqltuner.pl -O /tmp/mysqltuner.pl")
-        print cli("perl /tmp/mysqltuner.pl")
-
+        mysql = cli("perl /tmp/mysqltuner.pl > mysql.txt")
+        print mysql
 
 
 
